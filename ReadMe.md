@@ -23,7 +23,7 @@ A virtualized, multi-zone enterprise network architecture built using **pfSense 
 ## Key Features & Security Policies
 
 * **IKEv2 Site-to-Site IPsec VPN:** Connects `HomeOffice` (`192.168.1.60/24`) and `RemoteSite` (`192.168.1.189/24`) over Phase 1/Phase 2 tunnels with AES-CBC (Phase 1) / AES-GCM (Phase 2) encryption.
-* **DNSBL Threat Filtering (pfBlockerNG):** Centralized ad/malware domain sinkholing at the DNS layer.
+* **DNSBL Threat Filtering (pfBlockerNG):** Implemented DNS-layer sinkholing to block known malicious domains and enforce organizational access control policies (blocking high-bandwidth and social media platforms).
 * **Web Publishing (NAT Port Forwarding):** Port-forwarding WAN port 80 to an isolated Nginx Web Server inside the Corporate DMZ.
 * **Granular Firewall Policy:** Enforces default-deny rulebases between internal VLANs/subnets to prevent unauthorized lateral movement.
 
