@@ -22,30 +22,40 @@ A virtualized, multi-zone enterprise network architecture built using **pfSense 
 
 ## Key Features & Security Policies
 
-* **IKEv2 Site-to-Site IPsec VPN:** Connects `HomeOffice` (`192.168.50.0/24`) and `RemoteSite` (`192.168.60.0/24`) over Phase 1/Phase 2 tunnels with AES-GCM encryption.
+* **IKEv2 Site-to-Site IPsec VPN:** Connects `HomeOffice` (`192.168.50.0/24`) and `RemoteSite` (`192.168.60.0/24`) over Phase 1/Phase 2 tunnels with AES-CBC (Phase 1) / AES-GCM (Phase 2) encryption.
 * **DNSBL Threat Filtering (pfBlockerNG):** Centralized ad/malware domain sinkholing at the DNS layer.
-* **Web Publishing (NAT Port Forwarding):** Port-forwarding WAN port 443 to an isolated Nginx Web Server inside the Corporate DMZ, secured with self-signed TLS certificates.
+* **Web Publishing (NAT Port Forwarding):** Port-forwarding WAN port 80 to an isolated Nginx Web Server inside the Corporate DMZ.
 * **Granular Firewall Policy:** Enforces default-deny rulebases between internal VLANs/subnets to prevent unauthorized lateral movement.
 
 ---
 
 ## Verification & Traffic Analysis (Wireshark & Logs)
 
-### 1. Site-to-Site IPsec VPN Validation
+### 1. Inter-VLAN Segmentation Verification
+Strict inter-VLAN routing rules were implemented in pfSense to enforce zero-trust network boundaries between internal networks. The Finance (OPT1) and Sales (LAN) networks are fully isolated from one another, preventing any direct communication or lateral movement between departments — even though both sit behind the same firewall.
+
+*Live firewall logs showing the default-deny policy actively blocking cross-VLAN traffic — ICMP and TCP:SYN packets between the Finance (OPT1) and Sales (LAN) networks are denied in real time:*
+![Network Segmentation Rules](segmentationrules.png)
+
+### 2. Site-to-Site IPsec VPN Validation
 The IKEv2 tunnel was verified active between WAN endpoints `192.168.1.60` and `192.168.1.189`. 
 
+*pfSense IPsec status page showing the Phase 1 and Phase 2 tunnel as Established, with live encryption parameters and traffic counters:*
 ![IPsec Status](ipsectunnelstatus.png)
 
 *Wireshark capture showing ESP-encrypted traffic crossing the simulated WAN during cross-tunnel pings:*
 ![Wireshark ESP Capture](ipsecwiresharkpcap.png)
 
-### 2. DNSBL Sinkhole Proof
+### 3. DNSBL Sinkhole Proof
 DNS queries from internal clients for restricted domains return the local sinkhole loopback address, preventing outbound connections.
 
+*Wireshark capture showing a DNS query for a blocklisted domain resolving to the local sinkhole address instead of its real IP, confirming the block is active:*
 ![DNSBL Capture](dnsblwiresharkpcap.png)
 
-### 3. NAT Port Forwarding & Web DMZ Verification
+### 4. NAT Port Forwarding & Web DMZ Verification
+Inbound web traffic destined for the firewall's WAN address is redirected via NAT to the internal DMZ web server, allowing external clients to reach an internally-hosted service without directly exposing it.
 
+*Wireshark capture confirming inbound HTTPS/HTTP traffic correctly NAT'd from WAN to the DMZ web server:*
 ![NAT DMZ Verification](natwiresharkcap.png)
 
 ---
