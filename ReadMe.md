@@ -7,7 +7,7 @@ A virtualized, multi-zone enterprise network architecture built using **pfSense 
 
 ## Network Architecture Topology
 
-![Network Diagram](.images/HomeLab/labdiagram.png)
+![Network Diagram](labdiagram.png)
 
 ### Network Segmentation & Subnets
 | Zone / Site | Interface | Subnet | Description |
@@ -34,15 +34,15 @@ A virtualized, multi-zone enterprise network architecture built using **pfSense 
 ### 1. Site-to-Site IPsec VPN Validation
 The IKEv2 tunnel was verified active between WAN endpoints `192.168.1.60` and `192.168.1.189`. 
 
-![IPsec Status](.images/HomeLab/ipsectunnelstatus.png)
+![IPsec Status](ipsectunnelstatus.png)
 
 *Wireshark capture showing ESP-encrypted traffic crossing the simulated WAN during cross-tunnel pings:*
-![Wireshark ESP Capture](.images/HomeLab/ipsecwiresharkpcap.png)
+![Wireshark ESP Capture](ipsecwiresharkpcap.png)
 
 ### 2. DNSBL Sinkhole Proof
 DNS queries from internal clients for restricted domains return the local sinkhole loopback address, preventing outbound connections.
 
-![DNSBL Capture](.images/HomeLab/dnsblwiresharkpcap.png)
+![DNSBL Capture](dnsblwiresharkpcap.png)
 
 *NAT Port Forwarding & Web DMZ Verification: In Progress / Pending Final Wireshark Capture*
 
