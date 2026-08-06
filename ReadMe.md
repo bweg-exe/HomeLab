@@ -46,7 +46,7 @@ DNS queries from internal clients for restricted domains return the local sinkho
 
 ### 3. NAT Port Forwarding & Web DMZ Verification
 
-![NAT DMZ Verification](natwiresharkpcap.png)
+![NAT DMZ Verification](natwiresharkcap.png)
 
 ---
 
