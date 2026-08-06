@@ -44,7 +44,9 @@ DNS queries from internal clients for restricted domains return the local sinkho
 
 ![DNSBL Capture](dnsblwiresharkpcap.png)
 
-*NAT Port Forwarding & Web DMZ Verification: In Progress / Pending Final Wireshark Capture*
+### 3. NAT Port Forwarding & Web DMZ Verification
+
+![NAT DMZ Verification](natwiresharkpcap.png)
 
 ---
 
