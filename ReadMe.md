@@ -55,7 +55,7 @@ DNS queries from internal clients for restricted domains return the local sinkho
 ### 4. NAT Port Forwarding & Web DMZ Verification
 Inbound web traffic destined for the firewall's WAN address is redirected via NAT to the internal DMZ web server, allowing external clients to reach an internally-hosted service without directly exposing it.
 
-*Wireshark capture confirming inbound HTTPS/HTTP traffic correctly NAT'd from WAN to the DMZ web server:*
+*Wireshark capture confirming inbound HTTP traffic correctly NAT'd from WAN to the DMZ web server:*
 ![NAT DMZ Verification](natwiresharkcap.png)
 
 ---
