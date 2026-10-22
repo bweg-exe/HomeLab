@@ -7,7 +7,7 @@ A virtualized, multi-zone enterprise network architecture built using **pfSense 
 
 ## Network Architecture Topology
 
-![Network Diagram](labdiagram.png)
+![Network Diagram](pfsense-lab-topology.svg)
 
 ### Network Segmentation & Subnets
 | Zone / Site | Interface | Subnet | Description |
