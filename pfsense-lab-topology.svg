@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="880" viewBox="0 0 1400 880" font-family="Inter, DejaVu Sans, sans-serif">
+  <defs>
+    <marker id="dot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6">
+      <circle cx="5" cy="5" r="4" fill="#8b949e"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1400" height="880" rx="18" fill="#0d1117"/>
+
+  <!-- Header -->
+  <text x="60" y="70" fill="#f0f6fc" font-size="30" font-weight="700">pfSense multi-site lab</text>
+  <text x="60" y="100" fill="#8b949e" font-size="16">Segmented office network with a DMZ and a site-to-site IPsec VPN · Oracle VirtualBox</text>
+
+  <!-- WAN cloud -->
+  <rect x="660" y="128" width="280" height="76" rx="38" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="800" y="160" fill="#f0f6fc" font-size="17" font-weight="600" text-anchor="middle">WAN / Internet</text>
+  <text x="800" y="184" fill="#8b949e" font-size="14" text-anchor="middle">Simulated · 192.168.1.0/24</text>
+
+  <!-- WAN links -->
+  <path d="M760 204 V250 H490 V300" fill="none" stroke="#8b949e" stroke-width="2.5"/>
+  <path d="M840 204 V250 H1150 V300" fill="none" stroke="#8b949e" stroke-width="2.5"/>
+  <text x="500" y="285" fill="#8b949e" font-size="13">WAN 192.168.1.60</text>
+  <text x="1160" y="285" fill="#8b949e" font-size="13">WAN 192.168.1.189</text>
+
+  <!-- HomeOffice firewall -->
+  <rect x="330" y="300" width="320" height="84" rx="12" fill="#161b22" stroke="#f0883e" stroke-width="2.5"/>
+  <text x="490" y="334" fill="#f0f6fc" font-size="19" font-weight="700" text-anchor="middle">pfSense · HomeOffice</text>
+  <rect x="425" y="348" width="130" height="24" rx="12" fill="#3d2410"/>
+  <text x="490" y="365" fill="#f0883e" font-size="13" font-weight="600" text-anchor="middle">Suricata IDS</text>
+
+  <!-- RemoteSite firewall -->
+  <rect x="1010" y="300" width="280" height="84" rx="12" fill="#161b22" stroke="#f0883e" stroke-width="2.5"/>
+  <text x="1150" y="334" fill="#f0f6fc" font-size="19" font-weight="700" text-anchor="middle">pfSense · RemoteSite</text>
+  <text x="1150" y="362" fill="#8b949e" font-size="13" text-anchor="middle">Branch office</text>
+
+  <!-- IPsec tunnel -->
+  <line x1="650" y1="342" x2="1010" y2="342" stroke="#d29922" stroke-width="3" stroke-dasharray="10 7"/>
+  <rect x="722" y="312" width="216" height="26" rx="13" fill="#0d1117"/>
+  <text x="830" y="330" fill="#d29922" font-size="14" font-weight="600" text-anchor="middle">IPsec site-to-site VPN</text>
+
+  <!-- HomeOffice distribution -->
+  <path d="M490 384 V430" stroke="#8b949e" stroke-width="2.5"/>
+  <path d="M200 430 H780" stroke="#8b949e" stroke-width="2.5"/>
+  <path d="M200 430 V470 M490 430 V470 M780 430 V470" stroke="#8b949e" stroke-width="2.5"/>
+  <path d="M1150 384 V470" stroke="#8b949e" stroke-width="2.5"/>
+
+  <!-- ===== Zone: Sales ===== -->
+  <rect x="70" y="470" width="260" height="320" rx="14" fill="#0f1b2d" stroke="#388bfd" stroke-width="2"/>
+  <circle cx="96" cy="500" r="6" fill="#388bfd"/>
+  <text x="110" y="506" fill="#f0f6fc" font-size="18" font-weight="700">Sales-net</text>
+  <text x="90" y="532" fill="#8b949e" font-size="13">vtnet1 · LAN</text>
+  <text x="90" y="552" fill="#c9d1d9" font-size="14" font-family="DejaVu Sans Mono, monospace">192.168.10.1/24</text>
+  <rect x="110" y="580" width="180" height="44" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="200" y="607" fill="#c9d1d9" font-size="14" text-anchor="middle">Virtual switch</text>
+  <path d="M200 624 V680" stroke="#388bfd" stroke-width="2"/>
+  <rect x="100" y="680" width="200" height="60" rx="8" fill="#161b22" stroke="#388bfd"/>
+  <text x="200" y="705" fill="#f0f6fc" font-size="14" font-weight="600" text-anchor="middle">Sales-Client</text>
+  <text x="200" y="726" fill="#8b949e" font-size="13" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">192.168.10.x</text>
+
+  <!-- ===== Zone: Finance ===== -->
+  <rect x="360" y="470" width="260" height="320" rx="14" fill="#0f2318" stroke="#3fb950" stroke-width="2"/>
+  <circle cx="386" cy="500" r="6" fill="#3fb950"/>
+  <text x="400" y="506" fill="#f0f6fc" font-size="18" font-weight="700">Finance-net</text>
+  <text x="380" y="532" fill="#8b949e" font-size="13">vtnet2 · OPT1</text>
+  <text x="380" y="552" fill="#c9d1d9" font-size="14" font-family="DejaVu Sans Mono, monospace">192.168.20.1/24</text>
+  <rect x="400" y="580" width="180" height="44" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="490" y="607" fill="#c9d1d9" font-size="14" text-anchor="middle">Virtual switch</text>
+  <path d="M490 624 V652 H430 V680 M490 652 H550 V680" fill="none" stroke="#3fb950" stroke-width="2"/>
+  <rect x="372" y="680" width="116" height="60" rx="8" fill="#161b22" stroke="#3fb950"/>
+  <text x="430" y="705" fill="#f0f6fc" font-size="13" font-weight="600" text-anchor="middle">Finance-Client</text>
+  <text x="430" y="726" fill="#8b949e" font-size="12" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">.20.x</text>
+  <rect x="492" y="680" width="116" height="60" rx="8" fill="#161b22" stroke="#3fb950"/>
+  <text x="550" y="705" fill="#f0f6fc" font-size="13" font-weight="600" text-anchor="middle">FinanceDirector</text>
+  <text x="550" y="726" fill="#8b949e" font-size="12" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">.20.211</text>
+
+  <!-- ===== Zone: DMZ ===== -->
+  <rect x="650" y="470" width="260" height="320" rx="14" fill="#2a1d0a" stroke="#d29922" stroke-width="2"/>
+  <circle cx="676" cy="500" r="6" fill="#d29922"/>
+  <text x="690" y="506" fill="#f0f6fc" font-size="18" font-weight="700">CorporateDMZ</text>
+  <text x="670" y="532" fill="#8b949e" font-size="13">vtnet3 · OPT2</text>
+  <text x="670" y="552" fill="#c9d1d9" font-size="14" font-family="DejaVu Sans Mono, monospace">192.168.50.1/24</text>
+  <rect x="690" y="580" width="180" height="44" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="780" y="607" fill="#c9d1d9" font-size="14" text-anchor="middle">Virtual switch</text>
+  <path d="M780 624 V680" stroke="#d29922" stroke-width="2"/>
+  <rect x="680" y="680" width="200" height="60" rx="8" fill="#161b22" stroke="#d29922"/>
+  <text x="780" y="705" fill="#f0f6fc" font-size="14" font-weight="600" text-anchor="middle">NGINX web server</text>
+  <text x="780" y="726" fill="#8b949e" font-size="13" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">192.168.50.x</text>
+  <text x="780" y="768" fill="#d29922" font-size="12" text-anchor="middle">HTTP port-forwarded from WAN</text>
+
+  <!-- ===== Zone: RemoteSite ===== -->
+  <rect x="1020" y="470" width="260" height="320" rx="14" fill="#1e1430" stroke="#a371f7" stroke-width="2"/>
+  <circle cx="1046" cy="500" r="6" fill="#a371f7"/>
+  <text x="1060" y="506" fill="#f0f6fc" font-size="18" font-weight="700">RemoteSite-net</text>
+  <text x="1040" y="532" fill="#8b949e" font-size="13">vtnet1 · LAN</text>
+  <text x="1040" y="552" fill="#c9d1d9" font-size="14" font-family="DejaVu Sans Mono, monospace">192.168.60.1/24</text>
+  <rect x="1060" y="580" width="180" height="44" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="1150" y="607" fill="#c9d1d9" font-size="14" text-anchor="middle">Virtual switch</text>
+  <path d="M1150 624 V680" stroke="#a371f7" stroke-width="2"/>
+  <rect x="1050" y="680" width="200" height="60" rx="8" fill="#161b22" stroke="#a371f7"/>
+  <text x="1150" y="705" fill="#f0f6fc" font-size="14" font-weight="600" text-anchor="middle">RemoteSiteClient</text>
+  <text x="1150" y="726" fill="#8b949e" font-size="13" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">192.168.60.x</text>
+
+  <!-- Footer -->
+  <text x="60" y="840" fill="#8b949e" font-size="14">Inter-VLAN traffic filtered by pfSense firewall rules</text>
+  <text x="1340" y="840" fill="#8b949e" font-size="14" text-anchor="end">github.com/bweg-exe</text>
+</svg>
